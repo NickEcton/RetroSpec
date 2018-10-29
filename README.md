@@ -2,7 +2,7 @@
 
 ### Background and Overview 
 
-RestroSpec is an audio visualizer inspired by the old-school and undeniably cool Windows Media Player.
+RetroSpec is an audio visualizer inspired by the old-school and undeniably cool Windows Media Player.
 + The inspiration for this project is dervied from the exciting and powerful visualiations first seen in WMP, but now with an updated and fresh visual appeal utilizing new technologies to bring everyones favorite audio and sounds to life.
 + This project will allow users to upload any media file they wish and watch as the visualizer takes control.
 
