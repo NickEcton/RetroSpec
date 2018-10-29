@@ -19,7 +19,7 @@ RestroSpec is an audio visualizer inspired by the old-school and undeniably cool
   + This API will handle the bulk of the work when it comes to playing the audio files as well as deriving the visulations.
   ### JavaScript and HTML5 Canvas
   + Javscript and Canvas will be used to create the exciting and new visualtions on the html page in real time with the music.
-  + These technologies have since grown in popularity after the creation of the Windows Media Player and are incredily powerful at creating unique and colorful designs. These technologies will showcase how far audio visualtion potential has come since WMP.
+  + These technologies have since grown in popularity after the creation of the Windows Media Player and are incredibly powerful at creating unique and colorful designs. These technologies will showcase how far audio visualtion potential has come since WMP.
   
 ## Implementation and Timeline
 ### Weekend
@@ -37,10 +37,10 @@ RestroSpec is an audio visualizer inspired by the old-school and undeniably cool
 + Begin working with HTML canvas
 
 ### Wednesday
-+ Begin logic for creating visualizations from sound input 
++ Finish logic for creating visualizations from sound input 
++ Begin creating user controls to manipulate the display of visualizations
 
 ### Thursday
-+ Finish logic for visualizations
 + Default song is able to be played with visualizor showcasing its work
 + Begin working on allowing users to upload audio files
 
