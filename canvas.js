@@ -68,7 +68,7 @@ context = new AudioContext();
 bufferLoader = new BufferLoader(
     context,
     [
-'https://cf-media.sndcdn.com/TZhxv0XBJcsa.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vVFpoeHYwWEJKY3NhLjEyOC5tcDMiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE1NDA5NDU3MjV9fX1dfQ__&Signature=lTVj2V3idpIQIEDHMd97~LzPilm~6wDhiXM36KpjCcjq0Wd8Ld5ZrhGXqhmx~KO9y-LLw6Js7qabGI0-Z6j43VqtcibsB1UAsA1REWP8Hi6odc-5odDx~ynFqrnjtJ19ZcmJizJNKjtNGUSHHh5uETfSTCBnfOPVbMdh4sTFaAxIebewzcMPFi8p0Rq1S3mZqa-5szYFmGUZw0-cVgUuNuJytiLJxdwcATyk96NEk9NAiN22J6KZYrRALcuzZx0mCCHz-pVTl3FRjvSmMVg0veWRfZO4xlVzrlQb2iY6DEEJf0Cnmyl0DR4gr6JRECLFltSNxhHG8St1ALlliRMFNA__&Key-Pair-Id=APKAJAGZ7VMH2PFPW6UQ'    
+        'https://cf-media.sndcdn.com/uxOcgXyBHTBC.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vdXhPY2dYeUJIVEJDLjEyOC5tcDMiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE1NDA5MjY1MzF9fX1dfQ__&Signature=QctWJzLLmNzqLiv6VcC7Pboz-NtH~UpIFCUeGI1bVPycI6F0coPzP535q7~HdeYnUMJHFJSh3oYpPZR4dWne7FM9mG9WqzXjqvjRN92bIGRRwTF8z1Gq7ddKBVhfVYaLwyCQM811p9yyzZKzrd2FSAn~7~w8nmuigYRjMIiBHN4PdfeJI4jpAWT90wcD4WpJypqtPSN-H8BksdN483E4YoB6QLnuYiwcAKf5XYSqDRwn~0NtxGHnGSKRIsDcoRZ~WyMj2~z04ywDqS82p~zybm5hrMZL~y51ygW5d1aopF5iAH0WkIuaohbvsEZzQBMOLCvd79v1T-lXq~9nhudt5g__&Key-Pair-Id=APKAJAGZ7VMH2PFPW6UQ'
     ],
     finishedLoading
     );
@@ -108,8 +108,8 @@ function draw() {
   analyser.getByteFrequencyData(dataArray);
   analyser2.getByteTimeDomainData(dataArray2);
 
-  c.fillStyle = "rgb(0, 0, 0)";
-  c.fillRect(0, 0, canvas.width, canvas.height);
+//   c.fillStyle = "rgb(0, 0, 0)";
+//   c.fillRect(0, 0, canvas.width, canvas.height);
   
   c.lineWidth = 2;
 
@@ -129,7 +129,7 @@ function draw() {
     // ------ // 
     lilCircleRadius = dataArray[3] / 10
     
-    if (dataArray[3] > 165) {  
+    if (dataArray[3] > 165 && squareArray.length < 200) {  
         
         squareArray.push(new Square(Math.random() * canvas.width, Math.random() * canvas.height, lilCircleRadius, (Math.random() - 0.5) * 10, (Math.random() - 0.5) * 10, colors[Math.floor(Math.random() * colors.length)]));    
     } 
