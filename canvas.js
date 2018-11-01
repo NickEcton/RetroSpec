@@ -60,7 +60,7 @@ var splash = document.querySelector('#splash')
 var canvas = document.querySelector('canvas');
 var c = canvas.getContext("2d");
 
-window.addEventListener('load', init, false);
+window.addEventListener('load', init, false); 
 function init() {
 
 
