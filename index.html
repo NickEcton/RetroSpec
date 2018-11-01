@@ -7,6 +7,7 @@
         <style type="text/css"> 
             canvas {
                 border: 1px solid black;
+                display: none;
             }
             body {
                 margin: 0;
@@ -15,7 +16,18 @@
     </head>
     <body>
         <canvas></canvas>
-        
+        <div id="splash">
+            <div class="header">
+                <h1 draggable = "true">RetroSpec</h1>
+            </div> 
+            <div class="options-cont">
+                <div class="dropzone option">Drag Files Here</div>
+                <div class="option">Click To Begin</div>
+                <audio src="">
+                    <p>If you are reading this, it is because your browser does not support the audio element.     </p>
+                </audio>
+            </div> 
+        </div>
         <script src="canvas.js"></script>
     </body>
 </html>

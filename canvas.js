@@ -56,6 +56,7 @@ function BufferLoader(context, urlList, callback) {
 var context;
 var bufferLoader;
 var analyzer;
+var splash = document.querySelector('#splash')
 var canvas = document.querySelector('canvas');
 var c = canvas.getContext("2d");
 
@@ -83,6 +84,71 @@ analyser2 = context.createAnalyser();
 analyser.maxDecibels = 0
 analyser2.maxDecibels = -50
 
+var dragged;
+
+  /* events fired on the draggable target */
+  document.addEventListener("drag", function( event ) {
+
+  }, false);
+
+  document.addEventListener("dragstart", function( event ) {
+      // store a ref. on the dragged elem
+      dragged = event.target;
+      // make it half transparent
+      event.target.style.opacity = .5;
+  }, false);
+
+  document.addEventListener("dragend", function( event ) {
+      // reset the transparency
+      event.target.style.opacity = "";
+  }, false);
+
+  /* events fired on the drop targets */
+  document.addEventListener("dragover", function( event ) {
+      // prevent default to allow drop
+      event.preventDefault();
+
+  }, false);
+
+  document.addEventListener("dragenter", function( event ) {
+      event.preventDefault();
+      // highlight potential drop target when the draggable element enters it
+      if ( event.target.className == "dropzone option" ) {
+          console.log('hello purp')
+          event.target.style.color = "purple";
+      }
+
+  }, false);
+
+  document.addEventListener("dragleave", function( event ) {
+    event.preventDefault();
+      if ( event.target.className == "dropzone option" ) {
+          event.target.style.color = "";
+      }
+
+  }, false);
+
+  document.addEventListener("drop", function( event ) {
+      event.preventDefault();
+      console.log(event)
+
+      if ( event.target.className == "dropzone option" ) {
+          dt = event.dataTransfer
+          files = dt.files
+          console.log(event.dataTransfer.files[0])
+          let formData = new FormData()
+
+          formData.append('file', event.dataTransfer.files[0])
+          document.querySelector('audio').src = event.dataTransfer.files[0].name
+      }
+    
+  }, false);
+
+
+
+
+
+
 
 
 
@@ -98,7 +164,8 @@ var dataArray2 = new Uint8Array(bufferLength2);
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-
+splash.width = window.innerWidth;
+splash.height = window.innerHeight;
 
 
 function draw() {
@@ -133,7 +200,7 @@ function draw() {
         
         squareArray.push(new Square(Math.random() * canvas.width, Math.random() * canvas.height, lilCircleRadius, (Math.random() - 0.5) * 10, (Math.random() - 0.5) * 10, colors[Math.floor(Math.random() * colors.length)]));    
     } 
-    console.log(dataArray[3])
+    
     if (dataArray[3] <= 165) {
         squareArray.pop();
     }
@@ -163,6 +230,7 @@ function draw() {
 
     x += sliceWidth;
   }
+ 
   c.strokeStyle = "rgb(124,252,0)";
 
   c.lineTo(canvas.width, ((canvas.height / 2)));
@@ -188,12 +256,33 @@ function finishedLoading(bufferList) {
     // source2.buffer = bufferList[1];
     source1.connect(context.destination);
     // source2.connect(context.destination);
-    source1.start(0);
+    document.addEventListener('click', ()=> {
+        document.querySelector('canvas').style.display = "block"
+        document.querySelector('#splash').style.display = "none"
+        console.log('clicked')
+        source1.start(0);
+    })
+   
     // source2.start(0);
 }
 
+// add onclick to front page 
 
 
+var audio = document.querySelector('audio');
+
+context = new AudioContext();
+
+// Wait for window.onload to fire. See crbug.com/112368
+window.addEventListener('load', function(e) {
+  // Our <audio> element will be the audio source.
+  var source = context.createMediaElementSource(audio);
+  source.connect(analyser);
+  source.connect(analyser2);
+  analyser.connect(context.destination);
+
+  // ...call requestAnimationFrame() and render the analyser's output to canvas.
+}, false);
 
 
 // //squares 
@@ -247,7 +336,7 @@ function Square(x, y, radius, dx, dy, color) {
         c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
         c.strokeStyle = this.color
         c.stroke();
-        c.fill();
+        
     }
 
     this.update = () => {

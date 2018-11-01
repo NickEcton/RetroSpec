@@ -20,6 +20,49 @@
     }
 }
 
+html {
+    height: 100%;
+    
+}
+
+body {
+    height: 100%;
+}
+
+#splash {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to bottom, #000000 0%, #0099cc 100%);
+    text-align: center;
+    vertical-align: middle;
+    color: paleturquoise;
+}
+
+.header {
+    display: inline-block;
+    margin-top: 100px;
+
+}
+
+h1 {
+    margin : 0 auto;
+}
+
+.options-cont {
+    margin: 0 auto;
+    width: 300px;
+    height: 100px;
+    border: 1px solid black;
+    display: flex;
+    
+}
+
+.option {
+    border: 1px solid pink; 
+    flex-grow: 1;
+    vertical-align: middle;
+}
+
 canvas {
     -webkit-animation: bgcolor 20s infinite;
     animation: bgcolor 10s infinite;
