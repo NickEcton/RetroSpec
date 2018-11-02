@@ -69,7 +69,7 @@ context = new AudioContext();
 bufferLoader = new BufferLoader(
     context,
     [
-        'https://cf-media.sndcdn.com/uxOcgXyBHTBC.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vdXhPY2dYeUJIVEJDLjEyOC5tcDMiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE1NDA5MjY1MzF9fX1dfQ__&Signature=QctWJzLLmNzqLiv6VcC7Pboz-NtH~UpIFCUeGI1bVPycI6F0coPzP535q7~HdeYnUMJHFJSh3oYpPZR4dWne7FM9mG9WqzXjqvjRN92bIGRRwTF8z1Gq7ddKBVhfVYaLwyCQM811p9yyzZKzrd2FSAn~7~w8nmuigYRjMIiBHN4PdfeJI4jpAWT90wcD4WpJypqtPSN-H8BksdN483E4YoB6QLnuYiwcAKf5XYSqDRwn~0NtxGHnGSKRIsDcoRZ~WyMj2~z04ywDqS82p~zybm5hrMZL~y51ygW5d1aopF5iAH0WkIuaohbvsEZzQBMOLCvd79v1T-lXq~9nhudt5g__&Key-Pair-Id=APKAJAGZ7VMH2PFPW6UQ'
+'https://cf-media.sndcdn.com/FZLX3fivFdu1.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vRlpMWDNmaXZGZHUxLjEyOC5tcDMiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE1NDExNDA0Nzl9fX1dfQ__&Signature=r0oBaukVpT2pQrHK~37V9tOfIIW7PLvOI33usTwdqFQXj6jDRTVeo4ls0L6aiQS0ypfzDnbtv94vmAtA9tKX8chXr3w69HmQ1ovEUGHG6EERpno1oF9EWwKBbuyUnYa7ZLmdERIQt0ukIeo5n7oLTrs6XAsO9OQD9iGQQUPmOAychkrW0HDifvfGy1CL3kR4SXKrLiwNeK3iqgv3HZ9kaeoMqMJYhCpIFlTNRZMhkR~ftYdo99nCuFXS8APfnTpSscB8OidUes2nRKOa9UPg~2N83ho2Hx5KXfMtbLZcpROupkSasAxiU1KFWYrjg9CIDp6Mcce8sAuUVx8rlyFUAA__&Key-Pair-Id=APKAJAGZ7VMH2PFPW6UQ'
     ],
     finishedLoading
     );
@@ -103,6 +103,7 @@ function finishedLoading(bufferList) {
     document.querySelector('#demo').addEventListener('click', ()=> {
         document.querySelector('canvas').style.display = "block"
         document.querySelector('#splash').style.display = "none"
+        source1.playbackRate = 5.0
         source1.start(0);
     })
 }
@@ -150,6 +151,7 @@ c.clearRect(0, 0, innerWidth, innerHeight)
     }
 
     // Creates middle Circle // 
+    console.log(dataArray[100])
     circleRadius = dataArray[3] / 2
     c.strokeStyle = "rgb(255,105,180)";
     c.beginPath()

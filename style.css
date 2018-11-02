@@ -39,6 +39,12 @@ html {
     
 }
 
+button {
+    position: absolute;
+    height: 300px;
+    width: 300px;
+}
+
 body {
     height: 100%;
     font-family: 'DDrad';
@@ -101,6 +107,7 @@ h1 {
 }
 
 canvas {
+    position: relative;
     -webkit-animation: bgcolor 20s infinite;
     animation: bgcolor 10s infinite;
     -webkit-animation-direction: alternate;
