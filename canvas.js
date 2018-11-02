@@ -212,22 +212,28 @@ dropzone.addEventListener("dragleave", function( event ) {
 
 }, false);
 
-document.addEventListener("drop", function( event ) {
+document.addEventListener("dragover", function( event ) {
     event.preventDefault();
-    console.log(event)
+});
 
-    if ( event.target.className == "dropzone option" ) {
+dropzone.addEventListener("drop", function( event ) {
+
+    event.preventDefault();
+    if (event.dataTransfer.files[0].type == "audio/mp3") {
+
         dt = event.dataTransfer
         files = dt.files
         console.log(event.dataTransfer.files[0])
-        let formData = new FormData()
-
-        formData.append('file', event.dataTransfer.files[0])
+        
         document.querySelector('audio').src = event.dataTransfer.files[0].name
         document.querySelector('audio').play();
         document.querySelector('canvas').style.display = "block"
         document.querySelector('#splash').style.display = "none"
+    } else {
+        alert('Please Drop a .mp3 File')
+        dropzone.style.color=""
     }
+    
   
 }, false);
 

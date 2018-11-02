@@ -91,10 +91,13 @@ h1 {
 
 .option {
     font-size: 35px;
-   border-radius: 10%;
+    border-radius: 10%;
     vertical-align: middle;
     width: 43.75%;
-    background:
+}
+
+#dropspot {
+    cursor: default;
 }
 
 canvas {
