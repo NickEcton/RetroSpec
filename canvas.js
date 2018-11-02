@@ -84,73 +84,6 @@ analyser2 = context.createAnalyser();
 analyser.maxDecibels = 0
 analyser2.maxDecibels = -50
 
-var dragged;
-
-  /* events fired on the draggable target */
-  document.addEventListener("drag", function( event ) {
-
-  }, false);
-
-  document.addEventListener("dragstart", function( event ) {
-      // store a ref. on the dragged elem
-      dragged = event.target;
-      // make it half transparent
-      event.target.style.opacity = .5;
-  }, false);
-
-  document.addEventListener("dragend", function( event ) {
-      // reset the transparency
-      event.target.style.opacity = "";
-  }, false);
-
-  /* events fired on the drop targets */
-  document.addEventListener("dragover", function( event ) {
-      // prevent default to allow drop
-      event.preventDefault();
-
-  }, false);
-
-  document.addEventListener("dragenter", function( event ) {
-      event.preventDefault();
-      // highlight potential drop target when the draggable element enters it
-      if ( event.target.className == "dropzone option" ) {
-          console.log('hello purp')
-          event.target.style.color = "purple";
-      }
-
-  }, false);
-
-  document.addEventListener("dragleave", function( event ) {
-    event.preventDefault();
-      if ( event.target.className == "dropzone option" ) {
-          event.target.style.color = "";
-      }
-
-  }, false);
-
-  document.addEventListener("drop", function( event ) {
-      event.preventDefault();
-      console.log(event)
-
-      if ( event.target.className == "dropzone option" ) {
-          dt = event.dataTransfer
-          files = dt.files
-          console.log(event.dataTransfer.files[0])
-          let formData = new FormData()
-
-          formData.append('file', event.dataTransfer.files[0])
-          document.querySelector('audio').src = event.dataTransfer.files[0].name
-      }
-    
-  }, false);
-
-
-
-
-
-
-
-
 
 analyser.fftSize = 256;
 analyser2.fftSize = 2048
@@ -161,6 +94,20 @@ var dataArray = new Uint8Array(bufferLength);
 var dataArray2 = new Uint8Array(bufferLength2);
 
 
+function finishedLoading(bufferList) {
+    var source1 = context.createBufferSource();
+    source1.connect(analyser)
+    source1.connect(analyser2)
+    source1.buffer = bufferList[0];
+    source1.connect(context.destination);
+    document.querySelector('#demo').addEventListener('click', ()=> {
+        document.querySelector('canvas').style.display = "block"
+        document.querySelector('#splash').style.display = "none"
+        source1.start(0);
+    })
+}
+
+
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
@@ -169,14 +116,12 @@ splash.height = window.innerHeight;
 
 
 function draw() {
-    
+c.clearRect(0, 0, innerWidth, innerHeight)
   requestAnimationFrame(draw);
 
   analyser.getByteFrequencyData(dataArray);
   analyser2.getByteTimeDomainData(dataArray2);
-
-//   c.fillStyle = "rgb(0, 0, 0)";
-//   c.fillRect(0, 0, canvas.width, canvas.height);
+ 
   
   c.lineWidth = 2;
 
@@ -184,7 +129,6 @@ function draw() {
 
   var x = 0;
 
-  var sliceWidth = canvas.width * 1.0 / bufferLength2;
 
     //creates circles//
 
@@ -216,6 +160,8 @@ function draw() {
 
     
     // Creates line //
+var sliceWidth = canvas.width * 1.0 / bufferLength2;
+
   for ( i = 0; i < bufferLength2; i++) {
     var v = dataArray2[i] / 128.0;
     var y = v * canvas.height / 2;
@@ -235,7 +181,6 @@ function draw() {
 
   c.lineTo(canvas.width, ((canvas.height / 2)));
   
-//   c.rotate(5*Math.PI/180)
   c.stroke();
     // ------ // 
 }
@@ -246,25 +191,50 @@ draw();
 
 }
     
-function finishedLoading(bufferList) {
-    // Create two sources and play them both together.
-    var source1 = context.createBufferSource();
-    source1.connect(analyser)
-    source1.connect(analyser2)
-    // var source2 = context.createBufferSource();
-    source1.buffer = bufferList[0];
-    // source2.buffer = bufferList[1];
-    source1.connect(context.destination);
-    // source2.connect(context.destination);
-    document.addEventListener('click', ()=> {
+
+// DROP AND DRAG FUNCTIONALITY //
+var dropzone = document.querySelector('.dropzone')
+var counter = 0
+dropzone.addEventListener("dragenter", function( event ) {
+    event.preventDefault();
+      
+    dropzone.style.color = "purple";
+
+    counter +=1 
+}, false);
+
+dropzone.addEventListener("dragleave", function( event ) {
+  event.preventDefault();
+  counter -=1
+    if (counter === 0) {
+        dropzone.style.color = "";
+    }
+
+}, false);
+
+document.addEventListener("drop", function( event ) {
+    event.preventDefault();
+    console.log(event)
+
+    if ( event.target.className == "dropzone option" ) {
+        dt = event.dataTransfer
+        files = dt.files
+        console.log(event.dataTransfer.files[0])
+        let formData = new FormData()
+
+        formData.append('file', event.dataTransfer.files[0])
+        document.querySelector('audio').src = event.dataTransfer.files[0].name
+        document.querySelector('audio').play();
         document.querySelector('canvas').style.display = "block"
         document.querySelector('#splash').style.display = "none"
-        console.log('clicked')
-        source1.start(0);
-    })
-   
-    // source2.start(0);
-}
+    }
+  
+}, false);
+
+
+////////////////////////////////////////////
+
+
 
 // add onclick to front page 
 
@@ -375,15 +345,5 @@ for (var i = 0; i < 0; i++) {
     squareArray.push( new Square(x, y, 25, dx, dy, colors[Math.floor(Math.random() * colors.length)]))
 }
 
-function animate() {
-    requestAnimationFrame(animate);
-        c.clearRect(0, 0, innerWidth, innerHeight)
-        
 
-    for (var j = 0; j < squareArray.length; j++) {
-        squareArray[j].update()
-    }
 
-}
-
-animate()
