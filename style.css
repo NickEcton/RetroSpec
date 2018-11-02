@@ -14,25 +14,25 @@
 
 @keyframes bgcolor {
     0% {
-        background-color: #45a3e5
+        background: linear-gradient(to bottom, #000000 0%, #0099cc 100%);
     }
 
     30% {
-        background-color: #66bf39
+        background-color: green;
     }
 
     60% {
-        background-color: #eb670f
+        background: linear-gradient(to bottom, red 0%, yellow 100%);
     }
 
     90% {
-        background-color: #f35
+        background-color: purple;
     }
 
     100% {
-        background-color: #864cbf
+        background: linear-gradient(to bottom, blue 0%, pink 100%) }
     }
-}
+
 
 html {
     height: 100%;
@@ -70,6 +70,7 @@ h1 {
     font-weight: 1000;
     font-size: 120px;
     background: -webkit-linear-gradient(yellow, purple );
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin : 0 auto;
@@ -81,9 +82,20 @@ h1 {
    
 }
 
+#description {
+    margin: 0 auto;
+    margin-top: 200px;
+    width: 44%;
+    line-height: 30px;
+    background: -webkit-linear-gradient(white, pink );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 .options-cont {
     margin: 0 auto;
-    width: 62.5%;
+    width: 44%;
     height: 100px;
     display: flex;
     margin-top: 30px;
@@ -108,8 +120,8 @@ h1 {
 
 canvas {
     position: relative;
-    -webkit-animation: bgcolor 20s infinite;
+    /* -webkit-animation: bgcolor 20s infinite;
     animation: bgcolor 10s infinite;
     -webkit-animation-direction: alternate;
-    animation-direction: alternate;
+    animation-direction: alternate; */
 }
