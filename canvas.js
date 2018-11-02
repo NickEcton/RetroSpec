@@ -143,7 +143,7 @@ c.clearRect(0, 0, innerWidth, innerHeight)
     // Creates middle Circle // 
     
     circleRadius = dataArray[10] / 2
-    circleRadius1 = dataArray[1] / 2
+    circleRadius1 = dataArray[3] / 2
     // circleRadius2 = dataArray[5] / 2
     c.beginPath()
     c.strokeStyle = `rgb(${rand()},${rand()}, 0)`;
