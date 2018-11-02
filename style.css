@@ -39,11 +39,22 @@ html {
     
 }
 
-button {
+#back {
+    top: 10px;
+    left: 10px;
     position: absolute;
-    height: 300px;
-    width: 300px;
-}
+    width: 2.5%;
+    cursor: pointer;
+    
+  }
+
+  #playNpause {
+    top: 10px;
+    left: 62.5px;
+    position: absolute;
+    cursor: pointer;
+    width: 2.5%;
+  }
 
 body {
     height: 100%;
@@ -84,7 +95,7 @@ h1 {
 
 #description {
     margin: 0 auto;
-    margin-top: 200px;
+    margin-top: 70px;
     width: 44%;
     line-height: 30px;
     background: -webkit-linear-gradient(white, pink );
@@ -98,7 +109,7 @@ h1 {
     width: 44%;
     height: 100px;
     display: flex;
-    margin-top: 30px;
+    margin-top: 50px;
 }
 
 .middle-option {
