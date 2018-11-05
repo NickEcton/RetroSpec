@@ -101,7 +101,7 @@ splash.height = body.offsetHeight
 
 
 function draw() {
-c.clearRect(0, 0, innerWidth, innerHeight)
+c.clearRect(0, 0, canvas.width, canvas.height)
   requestAnimationFrame(draw);
 
   analyser.getByteFrequencyData(dataArray);
