@@ -21,29 +21,8 @@ RetroSpec is an audio visualizer inspired by the old-school and undeniably cool 
   + JavaScript and Canvas will be used to create the exciting and new visualizations on the html page in real time with the music.
   + These technologies have since grown in popularity after the creation of the Windows Media Player and are incredibly powerful at creating unique and colorful designs. These technologies will showcase how far audio visualization has come since WMP.
   
-## Implementation and Timeline
-### Weekend
-+ Deside on project idea
-+ Choose technologies
-+ Develop project proposal 
+## Features 
 
-### Monday
-+ Finish proposal
-+ Build project skeleton
-+ Begin practicing with Web Audio API
+### Splash Page 
 
-### Tuesday 
-+ Have default song loaded and be able to be played from site
-+ Begin working with HTML canvas
-
-### Wednesday
-+ Finish logic for creating visualizations from sound input 
-+ Begin creating user controls to manipulate the display of visualizations
-
-### Thursday
-+ Default song is able to be played with RetroSpec creating visuals
-+ Begin working on allowing users to upload audio files
-
-### Friday 
-+ Finish song upload process
-+ Create simple interactions for user to manipulate sound data (optional)
+This the first page the user sees upon visiting RetroSpec, anda as such the site's functionality is described in a short series of sentences. The user is given the option to either drag and drop a song from their own PC into the visualizer or click on the demo to play a preloaded song. There is also a link to the creators GitHub profile in between the selection options.
