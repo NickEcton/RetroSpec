@@ -26,3 +26,5 @@ RetroSpec is an audio visualizer inspired by the old-school and undeniably cool 
 ### Splash Page 
 
 This the first page the user sees upon visiting RetroSpec, anda as such the site's functionality is described in a short series of sentences. The user is given the option to either drag and drop a song from their own PC into the visualizer or click on the demo to play a preloaded song. There is also a link to the creators GitHub profile in between the selection options.
+
+<img src="https://github.com/NickEcton/RetroSpec/blob/master/RetroSpecSplash.gif" width="100%" height="10%" />
