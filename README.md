@@ -33,4 +33,4 @@ This the first page the user sees upon visiting RetroSpec, and as such the site'
 
 This page uses the given mp3's frequency and time data to display visually appealing effects. Feel free to check out the demo for yourself!
 
-<img src="https://github.com/NickEcton/RetroSpec/blob/master/VisualizerDemo.gif" width="100%" height="10%" />
+<img src="https://github.com/NickEcton/RetroSpec/blob/master/RetroSpecPortfolio.gif" width="100%" height="10%" />
