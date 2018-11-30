@@ -61,7 +61,7 @@ body {
     font-family: 'DDrad';
 }
 
-#splash {
+html {
     font-family: 'DDradBold';
     height: 100%;
     width: 100%;
@@ -131,6 +131,7 @@ h1 {
 
 canvas {
     position: relative;
+    height: 100%;
     /* -webkit-animation: bgcolor 20s infinite;
     animation: bgcolor 10s infinite;
     -webkit-animation-direction: alternate;
