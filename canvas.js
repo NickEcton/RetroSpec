@@ -94,10 +94,10 @@ var dataArray2 = new Uint8Array(bufferLength2);
 
 var body =document.querySelector('body')
 
-canvas.width = body.offsetWidth
-canvas.height = body.offsetHeight
-splash.width = body.offsetWidth
-splash.height = body.offsetHeight
+canvas.width = html.offsetWidth
+canvas.height = html.offsetHeight
+splash.width = html.offsetWidth
+splash.height = html.offsetHeight
 
 
 function draw() {
