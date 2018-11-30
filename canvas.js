@@ -92,7 +92,7 @@ var bufferLength2 = analyser2.frequencyBinCount;
 var dataArray = new Uint8Array(bufferLength);
 var dataArray2 = new Uint8Array(bufferLength2);
 
-var body =document.querySelector('body')
+var body =document.querySelector('html')
 
 canvas.width = html.offsetWidth
 canvas.height = html.offsetHeight
